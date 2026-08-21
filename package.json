@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-remote",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "Remote access gateway and zero-install Windows desktop projection for the DeepSeek Harness Web GUI.",
   "type": "module",
   "main": "lib/index.js",
