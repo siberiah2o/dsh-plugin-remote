@@ -12,6 +12,16 @@ dsh plugin --profile web add dsh-plugin-remote && dsh web
 
 > Note: this is a DSH (DeepSeek Harness) plugin — install it into a profile through `dsh plugin` (or the profile's dependencies) so the gateway activates; a plain `npm i` alone does not wire it in.
 
+## Screenshots
+
+| Login | Main view (对话 / 轨迹 / 远程访问 tabs) |
+|---|---|
+| ![login](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-login.png) | ![main view](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-main.png) |
+
+| Remote desktop tab | Settings → Remote Access |
+|---|---|
+| ![remote desktop](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-desktop.png) | ![settings](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-settings.png) |
+
 ## Features
 
 - **Login-gated remote access**: scrypt credentials + HttpOnly session cookie; HTTP/WebSocket reverse proxy with Host/Origin rewriting — no `--trusted-host` needed

@@ -12,6 +12,16 @@ dsh plugin --profile web add dsh-plugin-remote && dsh web
 
 > 注意：这是 DSH（DeepSeek Harness）插件，需要通过 `dsh plugin`（或 profile 依赖）安装到 profile 中才会激活网关；单独 `npm i` 不会生效。
 
+## 截图
+
+| 登录页 | 主界面（对话 / 轨迹 / 远程访问 页签） |
+|---|---|
+| ![登录页](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-login.png) | ![主界面](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-main.png) |
+
+| 远程桌面页签 | 设置 → 远程访问 |
+|---|---|
+| ![远程桌面](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-desktop.png) | ![设置](https://raw.githubusercontent.com/siberiah2o/dsh-plugin-remote/main/docs/screenshot-settings.png) |
+
 ## 功能
 
 - **登录后远程访问**：scrypt 凭据 + HttpOnly 会话 Cookie；HTTP/WebSocket 反向代理并重写 Host/Origin，无需 `--trusted-host`
