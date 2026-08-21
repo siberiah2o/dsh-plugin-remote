@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+project(dsh_remote_host LANGUAGES CXX)
+
+add_executable(dsh-remote-host WIN32 main.cpp)
+target_compile_features(dsh-remote-host PRIVATE cxx_std_20)
+target_compile_definitions(dsh-remote-host PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
+target_compile_options(dsh-remote-host PRIVATE /W4 /EHsc /utf-8)
+target_link_options(dsh-remote-host PRIVATE /SUBSYSTEM:CONSOLE)
+target_link_libraries(dsh-remote-host PRIVATE winhttp windowscodecs ole32 gdi32 user32 mfplat mfuuid mfreadwrite)
+set_property(TARGET dsh-remote-host PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")

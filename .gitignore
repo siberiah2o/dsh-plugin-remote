@@ -1,0 +1,23 @@
+# test home (isolated DSH_HOME for local verification)
+.test-home/
+
+# node
+node_modules/
+
+# next build artifacts
+gateway/.next/
+gateway/next-env.d.ts
+gateway/*.tsbuildinfo
+
+# logs / runtime
+*.log
+
+# gateway dev data dirs (real data lives under $DSH_HOME/plugin-data)
+gateway/.dsh-*-data/
+
+# headless-browser test profiles
+.edge-test/
+.edge-shot*/
+
+# native helper build tree (the release executable under native/windows-x64 is shipped)
+native/windows-host/build/

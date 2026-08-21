@@ -1,0 +1,67 @@
+{
+  "name": "dsh-plugin-remote",
+  "version": "0.5.11",
+  "description": "Remote access gateway and zero-install Windows desktop projection for the DeepSeek Harness Web GUI.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "slots"
+      ]
+    }
+  },
+  "files": [
+    "lib",
+    "native/windows-host/CMakeLists.txt",
+    "native/windows-host/build.ps1",
+    "native/windows-host/main.cpp",
+    "native/windows-x64/dsh-remote-host.exe",
+    "native/windows-x64/dsh-remote-host-h264.exe",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "gateway/components.json",
+    "gateway/next.config.mjs",
+    "gateway/package-lock.json",
+    "gateway/package.json",
+    "gateway/postcss.config.mjs",
+    "gateway/public/",
+    "gateway/server.mjs",
+    "gateway/websocket.mjs",
+    "gateway/desktop-rtc.mjs",
+    "gateway/desktop-smoke.mjs",
+    "gateway/src/",
+    "gateway/tsconfig.json"
+  ],
+  "scripts": {
+    "gateway:install": "npm --prefix gateway install",
+    "gateway:build": "npm --prefix gateway run build",
+    "gateway:dev": "npm --prefix gateway run dev",
+    "native:build": "powershell -ExecutionPolicy Bypass -File native/windows-host/build.ps1",
+    "test:desktop": "npm --prefix gateway run test:desktop"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "remote",
+    "reverse-proxy",
+    "web",
+    "h5",
+    "plugin"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

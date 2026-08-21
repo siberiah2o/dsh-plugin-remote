@@ -1,0 +1,39 @@
+# dsh-plugin-remote bundle patch - mounts the remote gateway as a profile layer.
+# Declared by package.json's dsh.bundle.patch; installing the package (or
+# linking it as a profile dependency and naming it in dsh.profile.bundles)
+# applies this layer automatically. No user-side config is required for the
+# remote experience: this layer also pins the directory picker to in-app
+# browse mode so opening a workspace works from a remote browser (native
+# would pop the OS dialog on the server's own display, unreachable remotely).
+#
+# Optional overrides live in the profile's cordis.patch.yml (applied AFTER
+# this layer), targeting these row ids, for example:
+#
+#   - id: dsh-plugin-remote
+#     config:
+#       port: 8443
+#       siteName: My DSH
+#       firstUserAutoCreate: false      # server posture: no first-visit registration
+#       initialUsers:                   # provision accounts at gateway boot
+#         - username: you@example.com   #   creates missing, updates changed
+#           password: 'your-strong-password'  #   passwords (revokes old sessions)
+#
+# Or manage accounts directly with the bundled CLI (works with the gateway
+# running or stopped; scrypt-hashed into users.json):
+#   node <plugin>/lib/remote-passwd.mjs add you@example.com
+#   node <plugin>/lib/remote-passwd.mjs set-password you@example.com
+
+# Disable the adaptive chooser (-auto) that would resolve to `native` on a
+# desktop server and open the OS dialog on the server display.
+- id: directory-picker
+  disabled: true
+
+- insert:
+    - id: dsh-plugin-remote
+      name: dsh-plugin-remote
+    # In-app directory browsing (host backend + browser UI): the remote-safe
+    # directory-picker interaction for opening workspaces.
+    - id: directory-picker-browse
+      name: '@deepseek-ai/dsh-host-directory-picker-browse'
+    - id: directory-picker-browse-ui
+      name: '@deepseek-ai/dsh-client-ui-directory-picker-browse'

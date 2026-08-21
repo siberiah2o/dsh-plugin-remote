@@ -1,0 +1,14 @@
+# gateway runtime/build artifacts (installed/built at boot by the plugin)
+gateway/node_modules/
+gateway/.next/
+gateway/next-env.d.ts
+gateway/*.tsbuildinfo
+gateway/.dsh-*-data/
+
+# test & dev
+.test-home/
+.edge-test/
+*.log
+
+# vcs
+.git/
