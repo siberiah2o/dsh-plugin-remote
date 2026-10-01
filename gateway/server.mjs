@@ -782,7 +782,7 @@ function proxyHttp(req, res) {
   for (const [k, v] of Object.entries(req.headers)) {
     if (v === undefined) continue
     const lk = k.toLowerCase()
-    if (lk === 'host' || lk === 'sec-fetch-site' || lk === 'cookie' || lk === 'connection') continue
+    if (lk === 'host' || lk === 'sec-fetch-site' || lk === 'cookie' || lk === 'connection' || lk === 'accept-encoding') continue
     headers[lk] = typeof v === 'string' ? v : v.join(', ')
   }
   headers.host = upstream.authority
